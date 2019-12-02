@@ -9,11 +9,22 @@ module.exports = {
   module: {
     rules: [
       { // js 模块打包
-        test: /\.(mjs|js|jsx)$/,
+        test: /\.js$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
-        use: ['babel-loader', 'eslint-loader']
+        use: ['babel-loader']
+      }, {
+        test: /\.(ts|tsx)$/,
+        exclude: [path.resolve(__dirname, 'node_modules')],
+        use: [
+          // {
+          //   loader: 'babel-loader'
+          // },
+          {
+            loader: "ts-loader"
+          },
+        ],
       }, { // 样式文件打包
-        test: /\.(css|scss)$/,
+        test: /\.(css|less)$/,
         use: [
           'style-loader', {
             loader: 'css-loader',
@@ -38,7 +49,15 @@ module.exports = {
       }, { // 文本文件加载(后期可能需要引入 markdown 文件)
         test: /\.(txt|md)$/,
         use: 'raw-loader',
+
       },
+      // {
+      //   test: /\.(ts|tsx)$/,
+      //   loader: 'babel-loader',
+      //   options: {
+      //     presets: [['react-app', { flow: false, typescript: true }]],
+      //   },
+      // }
     ]
   },
 
@@ -50,6 +69,6 @@ module.exports = {
   resolve: {
     alias,
     // 自动解析确定的扩展
-    extensions: ['.mjs', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
 }
