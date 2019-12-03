@@ -17,10 +17,10 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "rootDirs": [
-      "src",
+      "components",
       "stories"
     ],
-    "baseUrl": "src",
+    "baseUrl": "components",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -38,7 +38,6 @@
   ],
   "exclude": [
     "node_modules",
-    "build",
-    "scripts"
+    "build"
   ]
 }

@@ -12,17 +12,10 @@ module.exports = {
         test: /\.js$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
         use: ['babel-loader']
-      }, {
+      }, { // ts打包
         test: /\.(ts|tsx)$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
-        use: [
-          // {
-          //   loader: 'babel-loader'
-          // },
-          {
-            loader: "ts-loader"
-          },
-        ],
+        use: ['ts-loader'],
       }, { // 样式文件打包
         test: /\.(css|less)$/,
         use: [
