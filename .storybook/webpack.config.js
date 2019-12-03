@@ -2,7 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 // 路径别名
-const alias = {};
+const alias = {
+  '@': path.resolve(__dirname, '../components')
+};
 
 module.exports = {
   mode: 'production',
@@ -11,7 +13,7 @@ module.exports = {
       { // js 模块打包
         test: /\.js$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
-        use: ['babel-loader']
+        use: ['babel-loader', 'eslint-loader']
       }, { // ts打包
         test: /\.(ts|tsx)$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
